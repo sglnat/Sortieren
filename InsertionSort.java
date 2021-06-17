@@ -8,13 +8,13 @@
 public class InsertionSort extends BasicSort implements ISorter
 {
     int curI, curK;
-    
+
     /**
      * Constructor
      */
     public InsertionSort(SortCanvas p )
     {
-        super(p);        
+        super(p);
     }
 
     /**
@@ -28,10 +28,22 @@ public class InsertionSort extends BasicSort implements ISorter
      */
     public void sort(){
         int[] data = canvas.getData();
-       
-        //TODO: implement sort algorithm. You may use curI, curK as loop variables or define your own attributes.
-        canvas.reset();
-        canvas.redraw();
+        int j;
+        for(int i=1; i<data.length ;i++){
+            int einzusortierenderWert=data[i];
+            j=i;
+            canvas.hlA=j;
+            while(j>0 && data[j-1]>einzusortierenderWert){
+                swap(j, j-1);
+                j=j-1;
+                canvas.hlA=j;
+                canvas.redraw();canvas.delay();
+            }
+            //TODO: implement sort algorithm. You may use curI, curK as loop variables or define your own attributes.
+            canvas.reset();
+            canvas.redraw();
+            canvas.hlB=i;
+            canvas.redraw();canvas.delay();
+        }
     }
-
 }

@@ -66,7 +66,9 @@ public class Controller implements Initializable {
 
     @FXML
     void setInsertionSort(ActionEvent event) {
-        
+        ISorter s = new InsertionSort(canvas);
+        canvas.setSorter(s);
+        statusText.setText("Aktuelles Verfahren: Insertionsort");
     }
 
     @FXML
