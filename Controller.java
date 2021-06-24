@@ -61,7 +61,9 @@ public class Controller implements Initializable {
 
     @FXML
     void setBubbleSort(ActionEvent event) {
-
+        ISorter s = new BubbleSort(canvas);
+        canvas.setSorter(s);
+        statusText.setText("Aktuelles Verfahren: Bubblesort");
     }
 
     @FXML
